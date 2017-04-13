@@ -1,0 +1,38 @@
+﻿@model Homework1.Models.GuestResponse
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    
+    <title>SubmitForm</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet"  href="~/Content/styles.css" />
+    <style>
+        .btn a {
+            color: white;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+
+@{
+    Layout = null;
+}
+
+<html>
+    <body>
+        <h2>Send a Birthday Card</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <p>From: @Html.TextBoxFor(t => t.FromName, new { @class = "form-control", maxlength = 30, style = "width:300px;" })</p>
+            <p>To: @Html.TextBoxFor(t => t.ToName, new { @class = "form-control", maxlength = 30, style = "width:300px;" })</p>
+            <p>Message: @Html.TextBoxFor(t => t.Message, new { @class = "form-control", maxlength = 50, style = "width:300px;" })</p>
+            <input class="btn btn-success" type="submit" value="Send Card" />
+        }
+    </body>
+</html>
